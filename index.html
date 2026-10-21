@@ -147,8 +147,8 @@
         .art-card img {
             width: 100%;
             height: 320px;
-            object-fit: cover;
-            background-color: #eee;
+            object-fit: contain; /* Ajuste l'image en entier sans la couper */
+            background-color: #ffffff; /* Fond blanc automatique si l'image ne remplit pas tout le cadre */
         }
 
         /* --- 2. Carte Format Horizontal (Paysage) --- */
@@ -166,8 +166,8 @@
         .art-card-landscape img {
             width: 100%;
             height: 240px; /* Hauteur fixe et contrôlée, identique pour toutes les paysages */
-            object-fit: cover;
-            background-color: #eee;
+            object-fit: contain; /* Ajuste l'image en entier sans la couper */
+            background-color: #ffffff; /* Fond blanc automatique si l'image ne remplit pas tout le cadre */
         }
 
         /* --- Infos sous les cartes --- */
