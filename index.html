@@ -150,6 +150,15 @@
             background-color: #eee; /* Gris placeholder si l'image manque */
         }
 
+        /* 2. Format Paysage (Plus large pour les œuvres horizontales) */
+        .art-card.landscape {
+            flex: 0 0 380px; /* Carte plus large */
+        }
+
+        .art-card.landscape img {
+            height: 240px; /* Hauteur réduite pour garder un ratio paysage harmonieux */
+        }
+
         .art-info {
             padding: 15px;
             font-size: 0.9rem;
@@ -244,7 +253,7 @@
             
             <h2 class="subsection-title">Collection « Enfance »</h2>
             <div class="carousel-container">
-                <div class="art-card">
+                <div class="art-card.landscape">
                     <img src="images/Carton.png" alt="Fusain 1">
                     <div class="art-info">
                         <h3>Jeu dans carton</h3>
@@ -252,7 +261,7 @@
                     </div>
                 </div>
 
-                <div class="art-card">
+                <div class="art-card.landscape">
                     <img src="images/Piscine.png" alt="Fusain 1">
                     <div class="art-info">
                         <h3>Bébé nageur</h3>
@@ -260,7 +269,7 @@
                     </div>
                 </div>
 
-                <div class="art-card">
+                <div class="art-card.landscape">
                     <img src="images/Toboggan.png" alt="Fusain 1">
                     <div class="art-info">
                         <h3>Le toboggan</h3>
