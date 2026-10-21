@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Galerie de Chloé</title>
+    <style>
+        :root {
+            --bg-color: #f7f5f0; /* Blanc cassé / papier ancien */
+            --text-color: #2c2a29; /* Noir adouci */
+            --accent-color: #8c6d53; /* Brun sépia subtil */
+            --card-bg: #ffffff;
+            --border-color: #e3dec9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 70px; /* Espace pour la barre fixe */
+        }
+
+        /* --- Navigation Fixe (Sticky Header) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(247, 245, 240, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+
+        nav ul::-webkit-scrollbar {
+            display: none; /* Cache la barre de scroll sur mobile pour le design */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        /* --- Contenu Général --- */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            scroll-margin-top: 90px; /* Pour éviter que le header cache le titre au saut */
+        }
+
+        h1.section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: normal;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        h2.subsection-title {
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        /* --- Section Accueil / À propos --- */
+        #apropos {
+            text-align: center;
+            max-width: 600px;
+            margin: 20px auto 60px auto;
+        }
+        #apropos p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* --- Carrousels Horizontaux --- */
+        .carousel-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .carousel-container::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .art-card {
+            flex: 0 0 280px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .art-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background-color: #eee; /* Gris placeholder si l'image manque */
+        }
+
+        .art-info {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .art-info h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .art-info p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* --- Pied de page --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+            color: #777;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation en haut -->
+    <header>
+        <div class="logo">Le Portfolio de Chloé</div>
+        <nav>
+            <ul>
+                <li><a href="#fusains">Fusains</a></li>
+                <li><a href="#sculptures">Sculptures</a></li>
+                <li><a href="#huiles">Huiles</a></li>
+                <li><a href="#personnages">Personnages</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section À propos -->
+        <section id="apropos">
+            <h1 class="section-title" style="display:none;">À propos</h1>
+            <p>Bienvenue dans mon portfolio sans prétention hihi ! Bonne exploration :) </p>
+        </section>
+
+        <!-- SECTION 1 : SCULPTURES -->
+        <section id="sculptures">
+            <h1 class="section-title">Sculptures</h1>
+            
+            <h2 class="subsection-title">Argile</h2>
+            <div class="carousel-container">
+                <div class="art-card">
+                    <img src="images/sculpture1.jpg" alt="Œuvre 1">
+                    <div class="art-info">
+                        <h3>Titre de l'œuvre 1</h3>
+                        <p>Terra cotta, 2025 - 30x15cm. Courte description de l'intention artistique.</p>
+                    </div>
+                </div>
+                <div class="art-card">
+                    <img src="images/sculpture2.jpg" alt="Œuvre 2">
+                    <div class="art-info">
+                        <h3>Titre de l'œuvre 2</h3>
+                        <p>Bronze patiné - Dimensions variables.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : HUILES -->
+        <section id="huiles">
+            <h1 class="section-title">Peintures à l'huile</h1>
+            
+            <h2 class="subsection-title">Paysages</h2>
+            <div class="carousel-container">
+                <div class="art-card">
+                    <img src="images/huile1.jpg" alt="Huile 1">
+                    <div class="art-info">
+                        <h3>Poulpe luisant</h3>
+                        <p>Huile sur toile, 50x50cm, 2024.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 : FUSAINS -->
+        <section id="fusains">
+            <h1 class="section-title">Dessins au fusain</h1>
+            
+            <h2 class="subsection-title">Collection « Enfance »</h2>
+            <div class="carousel-container">
+                <div class="art-card">
+                    <img src="images/Carton.png" alt="Fusain 1">
+                    <div class="art-info">
+                        <h3>Jeu dans carton</h3>
+                        <p>Fusain sur papier grain, 2023.</p>
+                    </div>
+                </div>
+
+                <div class="art-card">
+                    <img src="images/Piscine.png" alt="Fusain 1">
+                    <div class="art-info">
+                        <h3>Bébé nageur</h3>
+                        <p>Fusain sur papier grain, 2023.</p>
+                    </div>
+                </div>
+
+                <div class="art-card">
+                    <img src="images/Toboggan.png" alt="Fusain 1">
+                    <div class="art-info">
+                        <h3>Le toboggan</h3>
+                        <p>Fusain sur papier grain, 2023.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4 : PETITS PERSONNAGES -->
+        <section id="personnages">
+            <h1 class="section-title">Petits personnages</h1>
+            
+            <h2 class="subsection-title">Cabinet de curiosités</h2>
+            <div class="carousel-container">
+                <div class="art-card">
+                    <img src="images/perso1.jpg" alt="Personnage 1">
+                    <div class="art-info">
+                        <h3>L'explorateur</h3>
+                        <p>Matériaux mixtes, hauteur 12cm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Mon Nom. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
